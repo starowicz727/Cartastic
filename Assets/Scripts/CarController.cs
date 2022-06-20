@@ -141,27 +141,11 @@ public class CarController : MonoBehaviour
             // wheel.wheelModel.transform.rotation = rot;
 
             //Debug.Log(steerInput);
-
-            //if (steerInput > 0) // w prawo
-            //{
-            //    wheel.wheelModel.transform.eulerAngles = new Vector3(0, 90 + rot.y * maxSteerAngle, 0);
-            //} 
-            //if(steerInput < 0)
-            //{
-            //    wheel.wheelModel.transform.eulerAngles = new Vector3(0, 90 - rot.y * maxSteerAngle, 0);
-            //}
+            // wheel.wheelModel.transform.eulerAngles = new Vector3(0, 90 + rot.y + steerInput * maxSteerAngle, 0);   // OBRACANIE KOL DO POPRAWY
             
-            //float steerAngle = steerInput;
-            //if (steerAngle >= maxSteerAngle)
-            //{
-            //    steerAngle = maxSteerAngle-1;
-            //}
-            //if(steerAngle<= -maxSteerAngle)
-            //{
-            //    steerAngle = -maxSteerAngle + 1; 
-            //}
-           // wheel.wheelModel.transform.eulerAngles = new Vector3(0, 90, 0); 
-            //wheel.wheelModel.transform.localRotation = new Quaternion(0, steerAngle - 90, 0,0);
+            
+
+
         }
     }
 
