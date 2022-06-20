@@ -10,7 +10,7 @@ public class CarController : MonoBehaviour
         Buttons
     };
 
-    public enum Axel
+    public enum Axle
     {
         Front,
         Rear
@@ -23,7 +23,7 @@ public class CarController : MonoBehaviour
         public WheelCollider wheelCollider;
         public GameObject wheelEffectObj;
         public ParticleSystem smokeParticle;
-        public Axel axel;
+        public Axle axle;
     }
 
     public ControlMode control;
@@ -43,21 +43,21 @@ public class CarController : MonoBehaviour
 
     private Rigidbody carRb;
 
-    private CarLights carLights;
+    //private CarLights carLights;
 
     void Start()
     {
         carRb = GetComponent<Rigidbody>();
         carRb.centerOfMass = _centerOfMass;
 
-        carLights = GetComponent<CarLights>();
+       // carLights = GetComponent<CarLights>();
     }
 
     void Update()
     {
         GetInputs();
         AnimateWheels();
-        WheelEffects();
+     //   WheelEffects();
     }
 
     void LateUpdate()
@@ -81,7 +81,7 @@ public class CarController : MonoBehaviour
     {
         if (control == ControlMode.Keyboard)
         {
-            moveInput = Input.GetAxis("Vertical");
+            moveInput = -Input.GetAxis("Vertical");
             steerInput = Input.GetAxis("Horizontal");
         }
     }
@@ -98,10 +98,10 @@ public class CarController : MonoBehaviour
     {
         foreach (var wheel in wheels)
         {
-            if (wheel.axel == Axel.Front)
+            if (wheel.axle == Axle.Front)
             {
                 var _steerAngle = steerInput * turnSensitivity * maxSteerAngle;
-                wheel.wheelCollider.steerAngle = Mathf.Lerp(wheel.wheelCollider.steerAngle, _steerAngle, 0.6f);
+                wheel.wheelCollider.steerAngle = Mathf.Lerp(wheel.wheelCollider.steerAngle, _steerAngle, 0.6f); 
             }
         }
     }
@@ -115,8 +115,8 @@ public class CarController : MonoBehaviour
                 wheel.wheelCollider.brakeTorque = 300 * brakeAcceleration * Time.deltaTime;
             }
 
-            carLights.isBackLightOn = true;
-            carLights.OperateBackLights();
+           // carLights.isBackLightOn = true;
+          //  carLights.OperateBackLights();
         }
         else
         {
@@ -125,8 +125,8 @@ public class CarController : MonoBehaviour
                 wheel.wheelCollider.brakeTorque = 0;
             }
 
-            carLights.isBackLightOn = false;
-            carLights.OperateBackLights();
+         //   carLights.isBackLightOn = false;
+        //    carLights.OperateBackLights();
         }
     }
 
@@ -138,7 +138,30 @@ public class CarController : MonoBehaviour
             Vector3 pos;
             wheel.wheelCollider.GetWorldPose(out pos, out rot);
             wheel.wheelModel.transform.position = pos;
-            wheel.wheelModel.transform.rotation = rot;
+            // wheel.wheelModel.transform.rotation = rot;
+
+            //Debug.Log(steerInput);
+
+            //if (steerInput > 0) // w prawo
+            //{
+            //    wheel.wheelModel.transform.eulerAngles = new Vector3(0, 90 + rot.y * maxSteerAngle, 0);
+            //} 
+            //if(steerInput < 0)
+            //{
+            //    wheel.wheelModel.transform.eulerAngles = new Vector3(0, 90 - rot.y * maxSteerAngle, 0);
+            //}
+            
+            //float steerAngle = steerInput;
+            //if (steerAngle >= maxSteerAngle)
+            //{
+            //    steerAngle = maxSteerAngle-1;
+            //}
+            //if(steerAngle<= -maxSteerAngle)
+            //{
+            //    steerAngle = -maxSteerAngle + 1; 
+            //}
+           // wheel.wheelModel.transform.eulerAngles = new Vector3(0, 90, 0); 
+            //wheel.wheelModel.transform.localRotation = new Quaternion(0, steerAngle - 90, 0,0);
         }
     }
 
@@ -148,7 +171,7 @@ public class CarController : MonoBehaviour
         {
             //var dirtParticleMainSettings = wheel.smokeParticle.main;
 
-            if (Input.GetKey(KeyCode.Space) && wheel.axel == Axel.Rear && wheel.wheelCollider.isGrounded == true && carRb.velocity.magnitude >= 10.0f)
+            if (Input.GetKey(KeyCode.Space) && wheel.axle == Axle.Rear && wheel.wheelCollider.isGrounded == true && carRb.velocity.magnitude >= 10.0f)
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
                 wheel.smokeParticle.Emit(1);
