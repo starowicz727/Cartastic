@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class CarController : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class CarController : MonoBehaviour
 
     public float maxAcceleration = 30.0f;
     public float brakeAcceleration = 50.0f;
+    public float maxSpeed = 200.0f;
+    public float speed = 0.0f;
 
     public float turnSensitivity = 1.0f;
     public float maxSteerAngle = 30.0f;
@@ -43,8 +46,9 @@ public class CarController : MonoBehaviour
     float steerInput;
 
     private Rigidbody carRb;
-
     //private CarLights carLights;
+
+    public Text speedTxt;
 
     void Start()
     {
@@ -66,14 +70,15 @@ public class CarController : MonoBehaviour
     {
         braking = context.action.triggered;
         brakingValue = context.ReadValue<float>();
-        Debug.Log(brakingValue);
+        //Debug.Log(brakingValue);
     }
 
     void Update()
     {
         GetInputs();
         AnimateWheels();
-     //   WheelEffects();
+        //   WheelEffects();
+        WriteSpeed();
     }
 
     void LateUpdate()
@@ -106,10 +111,18 @@ public class CarController : MonoBehaviour
 
     void Move()
     {
+        speed = (int)Math.Round(carRb.velocity.magnitude * 3.6);
+
+        int accelerating = 600;
+        if(speed > maxSpeed)
+        {
+            accelerating = 10;
+        }
         foreach (var wheel in wheels)
         {
-            wheel.wheelCollider.motorTorque = moveInput * 600 * maxAcceleration * Time.deltaTime;
+            wheel.wheelCollider.motorTorque = moveInput * accelerating * maxAcceleration * Time.deltaTime;
         }
+
     }
 
     void Steer()
@@ -166,6 +179,11 @@ public class CarController : MonoBehaviour
 
 
         }
+    }
+
+    void WriteSpeed()
+    {
+        speedTxt.text = speed.ToString();
     }
 
     //void WheelEffects()
