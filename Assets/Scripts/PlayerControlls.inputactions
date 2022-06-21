@@ -20,6 +20,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Accelerate",
+                    "type": "Button",
+                    "id": "397a7873-d510-497d-8501-34e44347ea46",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -91,6 +99,17 @@
                 },
                 {
                     "name": "",
+                    "id": "95f8f22e-0e95-4e36-a864-8c29479be5e6",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "655e63ce-9bd9-4ee4-bd29-59586d7768c5",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
@@ -103,11 +122,33 @@
                 {
                     "name": "",
                     "id": "aad81169-70e5-4fc1-adf9-7dfeb16e2a1e",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36b82caf-667e-45d8-b12c-998cecf88264",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Accelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb62495e-487a-4e1c-9c97-03b7da83363e",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Accelerate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

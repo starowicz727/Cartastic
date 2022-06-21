@@ -72,6 +72,12 @@ public class CarController : MonoBehaviour
         brakingValue = context.ReadValue<float>();
         //Debug.Log(brakingValue);
     }
+    private float acceleratingInputValue = 0;
+    private float accelerating = 600;
+    public void OnAccelerate(InputAction.CallbackContext context)
+    {
+        acceleratingInputValue = context.ReadValue<float>();
+    }
 
     void Update()
     {
@@ -88,15 +94,6 @@ public class CarController : MonoBehaviour
         Brake();
     }
 
-    //public void MoveInput(float input)
-    //{
-    //    moveInput = input;
-    //}
-
-    //public void SteerInput(float input)
-    //{
-    //    steerInput = input;
-    //}
 
     void GetInputs()
     {
@@ -113,14 +110,13 @@ public class CarController : MonoBehaviour
     {
         speed = (int)Math.Round(carRb.velocity.magnitude * 3.6);
 
-        int accelerating = 600;
         if(speed > maxSpeed)
         {
-            accelerating = 10;
+            acceleratingInputValue = 0;
         }
         foreach (var wheel in wheels)
         {
-            wheel.wheelCollider.motorTorque = moveInput * accelerating * maxAcceleration * Time.deltaTime;
+            wheel.wheelCollider.motorTorque = moveInput  * accelerating * acceleratingInputValue * maxAcceleration * Time.deltaTime; //* moveInput mozna usunac POZNIEJ ZEBY STEROWAC TYLKO TRIGGERAMI
         }
 
     }
