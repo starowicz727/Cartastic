@@ -108,6 +108,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 397a7873-d510-497d-8501-34e44347ea46
     m_ActionName: Player/Accelerate[/XInputControllerWindows/rightTrigger,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e7859ca-1662-4299-9a88-c43f002f819b
+    m_ActionName: Player/Join[/Keyboard/anyKey,/DualShock4GamepadHID/buttonEast,/XInputControllerWindows/buttonEast,/DualShock4GamepadHID/buttonWest,/XInputControllerWindows/buttonWest,/DualShock4GamepadHID/buttonNorth,/XInputControllerWindows/buttonNorth,/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/start,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
