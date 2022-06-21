@@ -21,8 +21,8 @@ public class CarController : MonoBehaviour
     {
         public GameObject wheelModel;
         public WheelCollider wheelCollider;
-        public GameObject wheelEffectObj;
-        public ParticleSystem smokeParticle;
+      //  public GameObject wheelEffectObj;
+       // public ParticleSystem smokeParticle;
         public Axle axle;
     }
 
@@ -149,21 +149,21 @@ public class CarController : MonoBehaviour
         }
     }
 
-    void WheelEffects()
-    {
-        foreach (var wheel in wheels)
-        {
-            //var dirtParticleMainSettings = wheel.smokeParticle.main;
+    //void WheelEffects()
+    //{
+    //    foreach (var wheel in wheels)
+    //    {
+    //        //var dirtParticleMainSettings = wheel.smokeParticle.main;
 
-            if (Input.GetKey(KeyCode.Space) && wheel.axle == Axle.Rear && wheel.wheelCollider.isGrounded == true && carRb.velocity.magnitude >= 10.0f)
-            {
-                wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
-                wheel.smokeParticle.Emit(1);
-            }
-            else
-            {
-                wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
-            }
-        }
-    }
+    //        if (Input.GetKey(KeyCode.Space) && wheel.axle == Axle.Rear && wheel.wheelCollider.isGrounded == true && carRb.velocity.magnitude >= 10.0f)
+    //        {
+    //            wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
+    //            wheel.smokeParticle.Emit(1);
+    //        }
+    //        else
+    //        {
+    //            wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
+    //        }
+    //    }
+    //}
 }
