@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class CarController : MonoBehaviour
 {
@@ -53,6 +54,18 @@ public class CarController : MonoBehaviour
        // carLights = GetComponent<CarLights>();
     }
 
+    private Vector2 movementInput = Vector2.zero;
+    public void OnMove(InputAction.CallbackContext context) //potrzebne do unity inputsystem 
+    {
+        movementInput = context.ReadValue<Vector2>();
+    }
+
+    private bool braking = false;
+    public void OnBreak(InputAction.CallbackContext context)
+    {
+        braking = context.action.triggered;
+    }
+
     void Update()
     {
         GetInputs();
@@ -67,23 +80,25 @@ public class CarController : MonoBehaviour
         Brake();
     }
 
-    public void MoveInput(float input)
-    {
-        moveInput = input;
-    }
+    //public void MoveInput(float input)
+    //{
+    //    moveInput = input;
+    //}
 
-    public void SteerInput(float input)
-    {
-        steerInput = input;
-    }
+    //public void SteerInput(float input)
+    //{
+    //    steerInput = input;
+    //}
 
     void GetInputs()
     {
-        if (control == ControlMode.Keyboard)
-        {
-            moveInput = -Input.GetAxis("Vertical");
-            steerInput = Input.GetAxis("Horizontal");
-        }
+        // if (control == ControlMode.Keyboard) //wersja ze starym input system
+        // { 
+        //  moveInput = -Input.GetAxis("Vertical");   
+        //  steerInput = Input.GetAxis("Horizontal");
+        //  }
+        moveInput = -movementInput.y;
+        steerInput = movementInput.x;
     }
 
     void Move()
@@ -108,7 +123,8 @@ public class CarController : MonoBehaviour
 
     void Brake()
     {
-        if (Input.GetKey(KeyCode.Space) || moveInput == 0)
+        // if (Input.GetKey(KeyCode.Space) || moveInput == 0) // wersja ze starym input system
+        if (braking || moveInput == 0)
         {
             foreach (var wheel in wheels)
             {
