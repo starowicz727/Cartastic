@@ -61,9 +61,12 @@ public class CarController : MonoBehaviour
     }
 
     private bool braking = false;
+    private float brakingValue = 0;
     public void OnBreak(InputAction.CallbackContext context)
     {
         braking = context.action.triggered;
+        brakingValue = context.ReadValue<float>();
+        Debug.Log(brakingValue);
     }
 
     void Update()
@@ -128,11 +131,11 @@ public class CarController : MonoBehaviour
         {
             foreach (var wheel in wheels)
             {
-                wheel.wheelCollider.brakeTorque = 300 * brakeAcceleration * Time.deltaTime;
+                wheel.wheelCollider.brakeTorque = 300 * brakeAcceleration * Time.deltaTime *brakingValue;
             }
-
-           // carLights.isBackLightOn = true;
-          //  carLights.OperateBackLights();
+          
+            // carLights.isBackLightOn = true;
+            //  carLights.OperateBackLights();
         }
         else
         {
@@ -154,7 +157,7 @@ public class CarController : MonoBehaviour
             Vector3 pos;
             wheel.wheelCollider.GetWorldPose(out pos, out rot);
             wheel.wheelModel.transform.position = pos;
-            // wheel.wheelModel.transform.rotation = rot;
+           // wheel.wheelModel.transform.rotation = rot;
 
             //Debug.Log(steerInput);
             // wheel.wheelModel.transform.eulerAngles = new Vector3(0, 90 + rot.y + steerInput * maxSteerAngle, 0);   // OBRACANIE KOL DO POPRAWY
