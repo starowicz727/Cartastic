@@ -135,25 +135,30 @@ public class CarController : MonoBehaviour
 
     void Brake()
     {
-        //if (braking)    //to do jechania do tylu wciskajac hamulec , jedynie co to trzeba wprowadzic kontrole predkosci np stala dla kazdego auta 30 kmh 
+        if (braking)    //to do jechania do tylu wciskajac hamulec , jedynie co to trzeba wprowadzic kontrole predkosci np stala dla kazdego auta 30 kmh 
+        {
+            if (speed > maxSpeed)
+            {
+                brakingValue = 0;
+            }
+            foreach (var wheel in wheels)
+            {
+                wheel.wheelCollider.motorTorque = accelerating * brakingValue * brakeAcceleration * Time.deltaTime;
+            }
+        }
+        //else if
+
+        // if (Input.GetKey(KeyCode.Space) || moveInput == 0) // wersja ze starym input system
+        //if (braking || moveInput == 0)
         //{
         //    foreach (var wheel in wheels)
         //    {
-        //        wheel.wheelCollider.motorTorque = accelerating * brakingValue * brakeAcceleration * Time.deltaTime;
+        //        wheel.wheelCollider.brakeTorque = 300 * brakeAcceleration * Time.deltaTime *brakingValue;
         //    }
-        //}else if
-
-        // if (Input.GetKey(KeyCode.Space) || moveInput == 0) // wersja ze starym input system
-        if (braking || moveInput == 0)
-        {
-            foreach (var wheel in wheels)
-            {
-                wheel.wheelCollider.brakeTorque = 300 * brakeAcceleration * Time.deltaTime *brakingValue;
-            }
           
-            // carLights.isBackLightOn = true;
-            //  carLights.OperateBackLights();
-        }
+        //    // carLights.isBackLightOn = true;
+        //    //  carLights.OperateBackLights();
+        //}
         else
         {
             foreach (var wheel in wheels)
