@@ -5,18 +5,22 @@ using UnityEngine.UI;
 
 public class CarSettingsMenu : MonoBehaviour
 {
-    public GameObject carBody;
-    public Button colorButton;
+    public GameObject look;
+    private GameObject carBody;
     public GameObject[] models;
     public Material[] materials;
     private int currentModel;
     private int currentColor;             
-    private const int numberOfColors = 8;
+    private const int numberOfColors = 9;
+    private const int numberOfModels = 6;
 
     private void Start()
     {
         currentModel = 0;
         currentColor = 0;
+        // carBody = GetChildWithName(look, "Car 3");
+        Instantiate(models[currentModel], look.transform);
+        carBody = GetChildWithName(look, models[currentModel].name + "(Clone)");
     }
     public void ColorChange()
     {
@@ -28,6 +32,36 @@ public class CarSettingsMenu : MonoBehaviour
 
         carBody.GetComponent<MeshRenderer>().material = materials[currentColor];
     }
+
+    public void ModelChange()
+    {
+        currentModel++;
+        if (currentModel >= numberOfModels)
+        {
+            currentModel = 0;
+        }
+
+        Destroy(carBody);
+        Instantiate(models[currentModel], look.transform);
+        carBody = GetChildWithName(look, models[currentModel].name+"(Clone)");
+
+        currentColor--;
+        ColorChange();
+    }
+
+    GameObject GetChildWithName(GameObject obj, string name)
+    {
+        Transform trans = obj.transform;
+        Transform childTrans = trans.Find(name);
+        if (childTrans != null)
+        {
+            return childTrans.gameObject;
+        }
+        else
+        {
+            return null;
+        }
+    }
 }
 
 // 0 turkus  53FDC8       
@@ -38,4 +72,5 @@ public class CarSettingsMenu : MonoBehaviour
 // 5 czerwien FF0084
 // 6 szary 727272
 // 7 zolty FFFC26
+// 8 czarny
 
