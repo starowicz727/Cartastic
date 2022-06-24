@@ -10,9 +10,9 @@ public class CarSettingsMenu : MonoBehaviour
     public GameObject[] models;
     public Material[] materials;
     private int currentModel;
-    private int currentColor;             
-    private const int numberOfColors = 9;
-    private const int numberOfModels = 6;
+    private int currentColor;
+    private int numberOfColors;
+    private const int numberOfModels = 6;  //6 modeli 
 
     private void Start()
     {
@@ -21,6 +21,8 @@ public class CarSettingsMenu : MonoBehaviour
         // carBody = GetChildWithName(look, "Car 3");
         Instantiate(models[currentModel], look.transform);
         carBody = GetChildWithName(look, models[currentModel].name + "(Clone)");
+
+        numberOfColors = materials.Length;
     }
     public void ColorChange()
     {
