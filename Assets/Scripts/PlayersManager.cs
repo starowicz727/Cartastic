@@ -12,7 +12,7 @@ public class PlayersManager : MonoBehaviour
 
 
     [SerializeField]
-    private List<PlayerInput> players = new List<PlayerInput>();
+    public static List<PlayerInput> players = new List<PlayerInput>();
     [SerializeField]
     private List<Transform> startingPoints;
 

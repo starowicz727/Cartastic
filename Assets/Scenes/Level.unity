@@ -3125,6 +3125,7 @@ GameObject:
   - component: {fileID: 1508753837}
   - component: {fileID: 1508753836}
   - component: {fileID: 1508753838}
+  - component: {fileID: 1508753839}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -3147,7 +3148,7 @@ MonoBehaviour:
   m_NotificationBehavior: 3
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 1
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3200,18 +3201,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508753835}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d855a5fa9d1bad4586b8f4fd5dc1342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startCamera: {fileID: 14628412}
-  players: []
+  panel: {fileID: 0}
+  panelLid: {fileID: 0}
   startingPoints:
   - {fileID: 370394401}
   - {fileID: 883385056}
   - {fileID: 1199764619}
   - {fileID: 1758376877}
+--- !u!114 &1508753839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508753835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bdb31949d334f845be89ca92c6a256f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &1526818017
 MeshFilter:
   m_ObjectHideFlags: 0
