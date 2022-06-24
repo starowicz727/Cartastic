@@ -9,6 +9,8 @@ public class PlayersManager : MonoBehaviour
     public Camera startCamera;
     public GameObject panel;
     public GameObject panelLid; //przykrywka tajemniczej czwartej kamery po prawej od do³u ekranu jak jest 3 graczy
+
+
     [SerializeField]
     private List<PlayerInput> players = new List<PlayerInput>();
     [SerializeField]
