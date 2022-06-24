@@ -176,7 +176,7 @@ public class @PlayerControlls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3e264118-bdc3-48f0-b98e-1ef294c96a33"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
