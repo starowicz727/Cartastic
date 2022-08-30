@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlayersManager : MonoBehaviour
+public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanager
 {
     public Camera startCamera;
     public GameObject panel;
@@ -64,8 +64,8 @@ public class PlayersManager : MonoBehaviour
 
     }
 
-    public void StartGameButtonClicked()
+    public void StartGameButtonClicked() // przycisk zaczynaj¹cy grê 
     {
-        //tu trzeba bd zapisac players do pliku i odczytac ich na nast scenie 
+        //tu trzeba bd zapisac players (public static List<PlayerInput> players = new List<PlayerInput>();) do pliku i odczytac ich na nast scenie 
     }
 }

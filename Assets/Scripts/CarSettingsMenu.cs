@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CarSettingsMenu : MonoBehaviour
+public class CarSettingsMenu : MonoBehaviour // skrypt przypisany do carsettingscanvas
 {
     public GameObject look;
     private GameObject carBody;
@@ -24,7 +24,7 @@ public class CarSettingsMenu : MonoBehaviour
 
         numberOfColors = materials.Length;
     }
-    public void ColorChange()
+    public void ColorChange() // metoda przypisana do przycisku zmiany koloru aut
     {
         currentColor++;
         if (currentColor >= numberOfColors)
@@ -35,7 +35,7 @@ public class CarSettingsMenu : MonoBehaviour
         carBody.GetComponent<MeshRenderer>().material = materials[currentColor];
     }
 
-    public void ModelChange()
+    public void ModelChange() //metoda przypisana do przycisku zmiany modeli aut
     {
         currentModel++;
         if (currentModel >= numberOfModels)
