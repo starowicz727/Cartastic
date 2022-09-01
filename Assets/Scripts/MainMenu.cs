@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour //skrypt przypisany do MenuCanvas
 {
+    public GameObject menuCanvas;
     void Start()
     {
        // GameState.LoadMyGameState();
@@ -12,7 +12,8 @@ public class MainMenu : MonoBehaviour //skrypt przypisany do MenuCanvas
     }
     public void StartPlaying()
     {
-        SceneManager.LoadScene("Level");
+        Cursor.visible = false;
+        menuCanvas.gameObject.SetActive(false);
     } 
     public void Quit()
     {

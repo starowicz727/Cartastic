@@ -64,8 +64,8 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
 
     }
 
-    public void StartGameButtonClicked() // przycisk zaczynaj¹cy grê 
-    {
-        //tu trzeba bd zapisac players (public static List<PlayerInput> players = new List<PlayerInput>();) do pliku i odczytac ich na nast scenie 
-    }
+    //////public void StartGameButtonClicked() // przycisk zaczynaj¹cy grê 
+    //////{
+    //////    //tu trzeba bd zapisac players (public static List<PlayerInput> players = new List<PlayerInput>();) do pliku i odczytac ich na nast scenie 
+    //////}
 }

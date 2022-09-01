@@ -7,6 +7,7 @@ public class CarSettingsMenu : MonoBehaviour // skrypt przypisany do carsettings
 {
     public GameObject look;
     private GameObject carBody;
+    private GameObject carBodyWithColor;
     public GameObject[] models;
     public Material[] materials;
     private int currentModel;
@@ -21,18 +22,21 @@ public class CarSettingsMenu : MonoBehaviour // skrypt przypisany do carsettings
         // carBody = GetChildWithName(look, "Car 3");
         Instantiate(models[currentModel], look.transform);
         carBody = GetChildWithName(look, models[currentModel].name + "(Clone)");
+        carBodyWithColor = GetChildWithName(carBody, "body");
 
         numberOfColors = materials.Length;
     }
     public void ColorChange() // metoda przypisana do przycisku zmiany koloru aut
     {
+        carBodyWithColor = GetChildWithName(carBody, "body");
+
         currentColor++;
         if (currentColor >= numberOfColors)
         {
             currentColor = 0;
         }
 
-        carBody.GetComponent<MeshRenderer>().material = materials[currentColor];
+        carBodyWithColor.GetComponent<MeshRenderer>().material = materials[currentColor];
     }
 
     public void ModelChange() //metoda przypisana do przycisku zmiany modeli aut
@@ -46,7 +50,7 @@ public class CarSettingsMenu : MonoBehaviour // skrypt przypisany do carsettings
         Destroy(carBody);
         Instantiate(models[currentModel], look.transform);
         carBody = GetChildWithName(look, models[currentModel].name+"(Clone)");
-
+        
         currentColor--;
         ColorChange();
     }
