@@ -2675,6 +2675,63 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 2.4
   m_Enabled: 1
+--- !u!1001 &1018138786
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1288723383258245689, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_Name
+      value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -400.0396
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -224.6153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.63680965
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
 --- !u!1 &1117379404
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,12 +3184,12 @@ GameObject:
   - component: {fileID: 1508753838}
   - component: {fileID: 1508753839}
   m_Layer: 0
-  m_Name: PlayerManager
+  m_Name: PlayerManager11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1508753836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3148,7 +3205,7 @@ MonoBehaviour:
   m_NotificationBehavior: 3
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 1
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3209,6 +3266,8 @@ MonoBehaviour:
   startCamera: {fileID: 14628412}
   panel: {fileID: 0}
   panelLid: {fileID: 0}
+  readyToStartButton: {fileID: 0}
+  passwordInput: {fileID: 0}
   startingPoints:
   - {fileID: 370394401}
   - {fileID: 883385056}
