@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanager
 {
@@ -11,8 +10,7 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
     public GameObject panel;
     public GameObject panelLid; //przykrywka tajemniczej czwartej kamery po prawej od do³u ekranu jak jest 3 graczy
     public Button readyToStartButton;
-    public InputField passwordInput;
-    public static string passwordTxt;
+
 
     [SerializeField]
     public static List<PlayerInput> players = new List<PlayerInput>();
@@ -23,8 +21,6 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
     private void Awake()
     {
         playerInputManager = FindObjectOfType<PlayerInputManager>();
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnEnable()
@@ -71,12 +67,5 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
     public void StartGameButtonClicked() // przycisk zaczynaj¹cy grê 
     {
         //tu trzeba bd zapisac players (public static List<PlayerInput> players = new List<PlayerInput>();) do pliku i odczytac ich na nast scenie 
-
-
-        passwordTxt = passwordInput.text.Equals("") ? "secretpassword" : passwordInput.text;
-      //  MenuInfo infoToSave = new MenuInfo(players, secretPassword);
-       // SaveDataFromMenu.SaveMenuInfo(infoToSave);
-
-        SceneManager.LoadScene("Level");
     }
 }
