@@ -7,13 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanager
 {
-    public Camera startCamera;
-    public GameObject panel;
-    public GameObject panelLid; //przykrywka tajemniczej czwartej kamery po prawej od do³u ekranu jak jest 3 graczy
-    ///public Button readyToStartButton; 
-    //public static bool IsReadyToStart = false;
-   // public InputField passwordInput;
-   // public static string passwordTxt;
+    public Text howToJoinTxt;
 
     [SerializeField]
     public static List<PlayerInput> players = new List<PlayerInput>();
@@ -44,21 +38,11 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
 
         if (players.Count > 0)
         {
-            startCamera.gameObject.SetActive(false);
-            panel.SetActive(false);
-            if (players.Count == 3)
-            {
-                panelLid.SetActive(true);
-            }
-            else
-            {
-                panelLid.SetActive(false);
-            }
+            howToJoinTxt.gameObject.SetActive(false);
         }
         else
         {
-            startCamera.gameObject.SetActive(true);
-            panel.SetActive(true);
+            howToJoinTxt.gameObject.SetActive(true);
         }
 
         //Transform playerParent = player.transform.parent;
