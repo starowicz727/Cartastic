@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanager
 {
+    public Camera startCamera;
     public Text howToJoinTxt;
 
     [SerializeField]
@@ -39,6 +40,11 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
         if (players.Count > 0)
         {
             howToJoinTxt.gameObject.SetActive(false);
+
+            if(players.Count == 3)
+            {
+                startCamera.backgroundColor = Color.black;
+            }
         }
         else
         {
