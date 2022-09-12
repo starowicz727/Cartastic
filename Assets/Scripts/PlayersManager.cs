@@ -10,9 +10,10 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
     public Camera startCamera;
     public GameObject panel;
     public GameObject panelLid; //przykrywka tajemniczej czwartej kamery po prawej od do³u ekranu jak jest 3 graczy
-    public Button readyToStartButton;
-    public InputField passwordInput;
-    public static string passwordTxt;
+    ///public Button readyToStartButton; 
+    //public static bool IsReadyToStart = false;
+   // public InputField passwordInput;
+   // public static string passwordTxt;
 
     [SerializeField]
     public static List<PlayerInput> players = new List<PlayerInput>();
@@ -24,7 +25,7 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
     {
         playerInputManager = FindObjectOfType<PlayerInputManager>();
 
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnEnable()
@@ -45,7 +46,6 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
         {
             startCamera.gameObject.SetActive(false);
             panel.SetActive(false);
-            readyToStartButton.gameObject.SetActive(true);
             if (players.Count == 3)
             {
                 panelLid.SetActive(true);
@@ -59,7 +59,6 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
         {
             startCamera.gameObject.SetActive(true);
             panel.SetActive(true);
-            readyToStartButton.gameObject.SetActive(false);
         }
 
         //Transform playerParent = player.transform.parent;
@@ -68,15 +67,15 @@ public class PlayersManager : MonoBehaviour // skrypt przypisany do playermanage
 
     }
 
-    public void StartGameButtonClicked() // przycisk zaczynaj¹cy grê 
-    {
-        //tu trzeba bd zapisac players (public static List<PlayerInput> players = new List<PlayerInput>();) do pliku i odczytac ich na nast scenie 
+    //public void StartGameButtonClicked() // przycisk zaczynaj¹cy grê 
+    //{
+    //    //tu trzeba bd zapisac players (public static List<PlayerInput> players = new List<PlayerInput>();) do pliku i odczytac ich na nast scenie 
 
 
-        passwordTxt = passwordInput.text.Equals("") ? "secretpassword" : passwordInput.text;
-      //  MenuInfo infoToSave = new MenuInfo(players, secretPassword);
-       // SaveDataFromMenu.SaveMenuInfo(infoToSave);
+    //    passwordTxt = passwordInput.text.Equals("") ? "secretpassword" : passwordInput.text;
+    //  //  MenuInfo infoToSave = new MenuInfo(players, secretPassword);
+    //   // SaveDataFromMenu.SaveMenuInfo(infoToSave);
 
-        SceneManager.LoadScene("Level");
-    }
+    //   // SceneManager.LoadScene("Level");
+    //}
 }

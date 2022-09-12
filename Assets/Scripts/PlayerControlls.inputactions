@@ -6,6 +6,14 @@
             "id": "5290a95b-5ecc-4623-b4d8-d3e684349a0a",
             "actions": [
                 {
+                    "name": "Join",
+                    "type": "PassThrough",
+                    "id": "4e7859ca-1662-4299-9a88-c43f002f819b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Movement",
                     "type": "Button",
                     "id": "2ed71455-0a48-45f8-b364-9c30030354af",
@@ -25,14 +33,6 @@
                     "name": "Accelerate",
                     "type": "Button",
                     "id": "397a7873-d510-497d-8501-34e44347ea46",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Join",
-                    "type": "Button",
-                    "id": "4e7859ca-1662-4299-9a88-c43f002f819b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -167,50 +167,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "048d86ca-8ed7-4e60-a434-2d2272793cea",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4e28094a-7b02-4f74-b753-09a6aec5d257",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "42908f62-2536-4a8e-a726-a85df684ed70",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5010fad7-d691-4379-ad80-6afabf064f37",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
                     "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
