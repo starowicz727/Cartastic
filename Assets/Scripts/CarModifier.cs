@@ -21,7 +21,7 @@ public class CarModifier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ChangeModel();
     }
 
     public void OnModelChange(InputAction.CallbackContext context)
@@ -34,12 +34,17 @@ public class CarModifier : MonoBehaviour
         if (changingModel)
         {
             cars[currentModel].gameObject.SetActive(false);
+            Transform positionToPutNewCar = cars[currentModel].gameObject.transform;
             currentModel++;
             if (currentModel >= cars.Length) //gdy ju¿ przejrzelismy ka¿dy samochód w tablicy i chcemy cofn¹æ siê na pocz¹tek
             {
                 currentModel = 0;
             }
-            cars[currentModel].gameObject.SetActive(true);
+
+            cars[currentModel].gameObject.gameObject.transform.position = new Vector3(positionToPutNewCar.position.x, positionToPutNewCar.position.y, positionToPutNewCar.position.z); //ustaw nowy w miejscu starego
+            mainCamera.gameObject.GetComponent<CameraFollow>().CarTarget = cars[currentModel].gameObject.transform; // ustaw kamerê na œledzenie nowego modelu
+            cars[currentModel].gameObject.gameObject.SetActive(true); // zrób nowy widzialnym 
+            
         }
     }
 }

@@ -347,7 +347,6 @@ MonoBehaviour:
   rotSmoothness: 6
   moveOffset: {x: 0, y: 3, z: 8}
   rotOffset: {x: 0, y: 0, z: 0}
-  carTarget: {fileID: 5619050264778976285}
 --- !u!1 &1010773884395954056
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +879,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 745361942278773262}
-  cars: []
+  cars:
+  - {fileID: 1206909573251855271}
+  - {fileID: 1010773885668425214}
 --- !u!1 &1010773885771324265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1480,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 745361942278773262}
-  cars: []
+  cars:
+  - {fileID: 1206909573251855271}
+  - {fileID: 1010773885668425214}
 --- !u!1 &1726432057146732409
 GameObject:
   m_ObjectHideFlags: 0
