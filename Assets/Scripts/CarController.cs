@@ -66,7 +66,7 @@ public class CarController : MonoBehaviour
 
     private bool braking = false;
     private float brakingValue = 0;
-    public void OnBreak(InputAction.CallbackContext context)
+    public void OnBrake(InputAction.CallbackContext context)
     {
         braking = context.action.triggered;
         brakingValue = context.ReadValue<float>();

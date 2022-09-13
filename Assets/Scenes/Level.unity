@@ -2686,6 +2686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1288723383258245689, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1288723383258245692, guid: dd6288a53a3636141bfd084118a5a2c9, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -3264,10 +3268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startCamera: {fileID: 14628412}
-  panel: {fileID: 0}
-  panelLid: {fileID: 0}
-  readyToStartButton: {fileID: 0}
-  passwordInput: {fileID: 0}
+  howToJoinTxt: {fileID: 0}
   startingPoints:
   - {fileID: 370394401}
   - {fileID: 883385056}

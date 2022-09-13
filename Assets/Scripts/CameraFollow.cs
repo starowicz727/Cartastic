@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
     public Vector3 moveOffset;
     public Vector3 rotOffset;
 
-    public Transform carTarget;
+    public Transform CarTarget { get; set; }
 
     void FixedUpdate()
     {
@@ -26,14 +26,14 @@ public class CameraFollow : MonoBehaviour
     void HandleMovement()
     {
         Vector3 targetPos = new Vector3();
-        targetPos = carTarget.TransformPoint(moveOffset);
+        targetPos = CarTarget.TransformPoint(moveOffset);
 
         transform.position = Vector3.Lerp(transform.position, targetPos, moveSmoothness * Time.deltaTime);
     }
 
     void HandleRotation()
     {
-        var direction = carTarget.position - transform.position;
+        var direction = CarTarget.position - transform.position;
         var rotation = new Quaternion();
 
         rotation = Quaternion.LookRotation(direction + rotOffset, Vector3.up);
